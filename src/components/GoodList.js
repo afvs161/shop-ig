@@ -1,7 +1,9 @@
+import { useContext } from 'react'
+import { ShopContext } from '../context'
 import GoodItem from './GoodItem'
 
 export default function GoodList(props) {
-	const { goods = [], addOrder } = props
+	const { goods = [] } = useContext(ShopContext)
 
 	if (!goods.length) {
 		;<h2>No products found</h2>
@@ -10,7 +12,7 @@ export default function GoodList(props) {
 	return (
 		<div className='goods'>
 			{goods.map(item => {
-				return <GoodItem key={item.id} {...item} addOrder={addOrder} />
+				return <GoodItem key={item.id} {...item} />
 			})}
 		</div>
 	)

@@ -3,6 +3,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Shop from './components/Shop'
 import { ToastContainer } from 'react-toastify'
+import { ContextProvider } from './context'
 
 export default function App() {
 	const [navMargin, setNavMargin] = useState(false)
@@ -13,12 +14,11 @@ export default function App() {
 
 	return (
 		<>
-			<ToastContainer
-				position='top-right'
-				autoClose={3000}
-			/>
+		<ToastContainer position='top-right' autoClose={3000} />
 			<Header toggleNavMargin={toggleNavMargin} />
-			<Shop navMargin={navMargin} />
+			<ContextProvider>
+				<Shop navMargin={navMargin} />
+			</ContextProvider>
 			<Footer />
 		</>
 	)

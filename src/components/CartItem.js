@@ -1,13 +1,15 @@
+import { useContext } from 'react'
+import { ShopContext } from '../context'
+
 export default function CartItem({
 	id,
 	name,
 	price,
 	quantity,
 	full_background,
-	removeItem,
-	incOrder,
-	decOrder,
 }) {
+	const { decOrder, incOrder, removeItem } = useContext(ShopContext)
+
 	return (
 		<li className='collection-item valign-wrapper orderItem'>
 			<div className='valign-wrapper'>
